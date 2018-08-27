@@ -202,4 +202,108 @@ void practice(void){
         return;
     }
   }
-}// End of Practice 
+}// End of Practice
+
+//Function for taking typing Test
+void test(void){
+  char ch1, ch2;
+  int count, noc;
+  fstream fptr1, fptr2;
+
+  while(1){
+    count = 0;
+    noc = 0;
+    clrscr();
+
+    fptr1.open("test.txt", ios::in);
+    gotoxy(1, 2);
+    while(fptr1){
+      fptr1.get(ch1);
+      cout << ch1;
+      if(ch1 == '\n')
+        cout << "\n";
+      noc++;
+    }
+    fptr1.close();
+
+    fptr2.open("text2.txt", ios::out);
+
+    gotoxy(1, 13);
+    cprintf("Type the above text");
+
+    gotoxy(1, 17);
+
+    time_t t1;
+    time(&t1);
+
+    for (int i = 0; i < 405; i++) {
+      ch2 = getch();
+      fptr2.put(ch2);
+    }
+    time_t t2;
+    time(&t2);
+
+    fptr2.close();
+
+    fptr1.open("test.txt", ios::in);
+    fptr2.open("type2.txt", ios::in);
+
+    gotoxy(1, 26);
+    cout << "Typing Practice Result..";
+
+    gotoxy(1, 29);
+    int flag = 0;
+    int flag2 = 0;
+    int flag3 = 0;
+
+    for(i = 0; i < 405; i++){
+      fptr1.get(ch1);
+      fptr2.get(ch2);
+      if(flag == 5){
+        while(1){
+          if(flag2 = 0)
+            fptr1.get(ch1);
+          if(flag3 = 0)
+            fptr2.get(ch2);
+          if(ch1 == ' ')
+            flag2 = 1;
+          if(ch2 == ' ')
+            flag3 = 1;
+          if(flag2 == 1 && flag3 == 1)
+            break;
+        }// End of while block
+        flag = 0;
+      }// End of if block
+      if(ch1 == ch2){
+        flag = 0;
+        textcolor(WHITE);
+        cprintf("%c", ch2);
+      }else{
+        count++;
+        flag++;
+        textcolor(RED);
+        cprintf("%c", ch2);
+      }
+    }// End of for block.
+    textcolor(WHITE);
+
+    gotoxy(1, 37);
+    cout << setprecision(2);
+    cout << "Speed - " << (71*60)/difftime(t2, t1) << "words per min.";
+
+    gotoxy(1, 39);
+    cout << "Accuracy - " << (float((noc - count))/float(noc)) * 100.00 << " %";
+    fptr1.close();
+    fptr2.close();
+
+    while(1){
+      gotoxy(1, 42);
+      cout << "Take test Again? (Y/N)";
+      ch1 = getch();
+      if(toupper(ch1) == 'Y')
+        break;
+      else if(toupper(ch1) == 'N')
+        return;
+    }
+  }
+}// End of Test 
