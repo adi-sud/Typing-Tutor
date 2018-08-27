@@ -77,7 +77,7 @@ void tips(void){
   gotoxy(2, 6);
   cout << "1. First and formost make sure that you are seated comfortably with the ";
   gotoxy(5, 7);
-  cout << "keyboard placed at appropriate height."
+  cout << "keyboard placed at appropriate height.";
 
   gotoxy(2, 9);
   cout << "2. Use all your fingers while typing, with the thumb being used for pressing ";
@@ -90,12 +90,12 @@ void tips(void){
   cout << "your finger memory.";
 
   gotoxy(2, 15);
-  cout << "4. Avoid looking at the keybord while typing and try to keep your eyes on the "
+  cout << "4. Avoid looking at the keybord while typing and try to keep your eyes on the ";
   gotoxy(5, 16);
   cout << "screen";
 
   gotoxy(2, 18);
-  cout << "5. Practice as much as you can to build your typing skills."
+  cout << "5. Practice as much as you can to build your typing skills.";
 
   gotoxy(30, 30);
   cout << "Press any key to go back..";
@@ -157,9 +157,9 @@ void practice(void){
       fptr2.get(ch2);
       if(flag == 5){
         while(1){
-          if(flag2 = 0)
+          if(flag2 == 0)
             fptr1.get(ch1);
-          if(flag3 = 0)
+          if(flag3 == 0)
             fptr2.get(ch2);
           if(ch1 == ' ')
             flag2 = 1;
@@ -261,9 +261,9 @@ void test(void){
       fptr2.get(ch2);
       if(flag == 5){
         while(1){
-          if(flag2 = 0)
+          if(flag2 == 0)
             fptr1.get(ch1);
-          if(flag3 = 0)
+          if(flag3 == 0)
             fptr2.get(ch2);
           if(ch1 == ' ')
             flag2 = 1;
@@ -306,4 +306,4 @@ void test(void){
         return;
     }
   }
-}// End of Test 
+}// End of Test
